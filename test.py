@@ -1,10 +1,15 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 import time
 
-# Initialize WebDriver
-driver = webdriver.Chrome()  # If ChromeDriver is not in PATH, specify the full path: webdriver.Chrome(executable_path="C:\\Users\\Acer\\Documents\\chromedriver.exe")
+# Provide the full path to ChromeDriver (Modify if needed)
+chrome_driver_path = "C:\\Users\\Acer\\Documents\\chromedriver.exe"
+
+# Initialize WebDriver using Service()
+service = Service(chrome_driver_path)
+driver = webdriver.Chrome(service=service)
 
 # Open the web application
 driver.get("http://127.0.0.1:5000/login")
